@@ -12,7 +12,7 @@ class tdarray                                                       /*Two diment
     void traversing();
     void display();
 };
-void tdarray::display()
+void tdarray::display()                                             /*2D Array dsiplaying*/
 {
     for(i=0;i<m;i++)
     {
@@ -22,7 +22,7 @@ void tdarray::display()
         }
     }
 }  
-void tdarray::traversing()
+void tdarray::traversing()                                          /*2D Array traversing linear search*/
 {
     cout<<"Enter the element you want to search";
     cin>>e;
@@ -42,7 +42,7 @@ void tdarray::traversing()
         cout<<"Element not found";
     }
 }
-void tdarray::storing()
+void tdarray::storing()                                             /*2D Array Storing*/
 {
     cout<<"Enter coloums";
     cin>>n;
@@ -60,13 +60,14 @@ void tdarray::storing()
     cout<<"Your array succesfully stored";
     display();
 }  
-class arrayoperation                                               /*One dimention array class and functions*/
+class arrayoperation                                                /*One dimention array class and functions*/
 {
     public:                            
-    int a[30],i,n,loc,f,e,temp,j;    
+    int a[30],i,n,loc,f,e,temp,j,first,last,mid,pos;    
     arrayoperation()
     {
         f=0;
+        pos=-1;
     }          
     void display();
     void storing();
@@ -74,8 +75,9 @@ class arrayoperation                                               /*One dimenti
     void deletion();
     void traversing();
     void sorting();
+    void binarysearch();
 };
-void arrayoperation::display()
+void arrayoperation::display()                                      /*1D Array Displaying*/
 {
     for ( i = 0; i < n; i++)
     {
@@ -83,7 +85,37 @@ void arrayoperation::display()
     }
     
 }
-void arrayoperation::sorting()
+void arrayoperation::binarysearch()                                 /*1D array binary search*/
+{
+    sorting();
+    cout<<"Enter the element you want to search";
+    cin>>e;
+    first=0;
+    last=n-1;
+    for(i=0;i<n;i++)
+    {
+        mid=(first+last)/2;
+        if(a[mid]==e)
+        {
+            pos=mid+1;
+            cout<<"Element found at position"<<pos;
+            break;
+        }
+        else if(a[mid]>e)
+        {
+            last=mid-1;
+        }
+        else
+        {
+            first=mid+1;
+        }
+    }
+    if(pos==-1)
+    {
+        cout<<"Element not found";
+    }
+}
+void arrayoperation::sorting()                                      /*1D Array Sorting*/
 {
     for(i=0;i<n;i++)
     {
@@ -99,7 +131,7 @@ void arrayoperation::sorting()
     }
     display();
 }
-void arrayoperation::storing()
+void arrayoperation::storing()                                      /*1D Array Storing*/
 {
     cout<<"Enter limit";
     cin>>n;
@@ -111,7 +143,7 @@ void arrayoperation::storing()
     cout<<"Your array succesfully stored";
     display();
 }
-void arrayoperation::insertion()
+void arrayoperation::insertion()                                    /*1D Array insertion*/
 {
     cout<<"Enter the element you want to insert";
     cin>>e;
@@ -126,7 +158,7 @@ void arrayoperation::insertion()
     n=n+1;
     display();
 }
-void arrayoperation::deletion()
+void arrayoperation::deletion()                                     /*1D Array Deletion*/
 {
     cout<<"Enter the position you want to delete";
     cin>>loc;
@@ -138,7 +170,7 @@ void arrayoperation::deletion()
     n=n-1;
     display();
 }
-void arrayoperation::traversing()
+void arrayoperation::traversing()                                   /*1D Array traversing linear search*/
 {
     cout<<"Enter the element you want to search";
     cin>>e;
@@ -155,7 +187,7 @@ void arrayoperation::traversing()
         cout<<"Element not found";
     }
 }
-main()                                                            /*main function*/                                             
+main()                                                              /*main function*/                                             
 {
     int o,c;
     char yn;
@@ -170,7 +202,7 @@ main()                                                            /*main functio
         {
             cout<<"Store a 1D array"<<endl;
             a.storing();
-            cout<<"Enter the operation you want to perform\ninsertion - 1\nDeletion - 2\nFind an element - 3\nSorting the array - 4"<<endl;
+            cout<<"Enter the operation you want to perform\ninsertion - 1\nDeletion - 2\nFind an element - 3\nSorting the array - 4\nBinary Search - 5\n"<<endl;
             cin>>o;
             switch(o)
             {
@@ -181,6 +213,8 @@ main()                                                            /*main functio
                 case 3: a.traversing();
                 break;
                 case 4: a.sorting();
+                break;
+                case 5: a.binarysearch();
                 break;
                 default: cout<<"Invalid operation";
             }
