@@ -82,4 +82,95 @@ Merging:
     Step8   i=i+1, j=j+1
 }
 
+Operation on two dimention array
 
+Searching:
+{
+    Begin searchArray(a,item)
+    for i=0 to rowsize
+        for j=0 to coloumsize
+            ifa[i][j]=item
+                print(i,j)
+                return
+            end if
+        end for
+        Print value not found
+    end for
+    end searchArray
+}
+
+Insertion:
+a1 = 2D array, a2 = 1D array
+a1 size= m*n
+a2 size= m+n
+{
+    Conversion of 2D to 1D:
+    {
+        set index=0
+        for i=0 to rowsize
+            for j=0 to coloumsize
+                a2[index++]=a1[i][j]
+            end for
+        end for
+    }
+
+    Perform the operation insertion in 1D array
+
+    Conversion of 1D to 2D:
+    {
+        set index=0
+        for i=0 to rowsize+1
+            for j=0 to coloumnsize
+                a1[i][j]=a2[index++]
+            end for
+        end for
+    }
+}
+
+Deletion:
+{
+    Conversion of 2D to 1D:
+    {
+        set index=0
+        for i=0 to rowsize
+            for j=0 to coloumsize
+                a2[index++]=a1[i][j]
+            end for
+        end for
+    }
+
+    Perform the operation deletion in 1D array
+
+    Conversion of 1D to 2D:
+    {
+        set index=0
+        for i=0 to rowsize
+            for j=0 to coloumnsize
+                a1[i][j]=a2[index++]
+            end for
+        end for
+    }
+}
+
+Sorting:
+{
+    Conversion of 2D to 1D
+    {
+        set index=0
+        for i=0 to rowsize
+            for j=0 to coloumsize
+                a2[index++]=a1[i][j]
+            end for
+        end for
+    }
+    Perform the operation sorting in 1D array
+    Conversion of 1D to 2D
+    {
+        set index=0
+        for i=0 to rowsize
+            for j=0 to coloumnsize
+                a1[i][j]=a2[index++]
+            end for
+        end for
+    }
+}
