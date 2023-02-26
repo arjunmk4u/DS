@@ -163,14 +163,17 @@ Sorting:
             end for
         end for
     }
-    Perform the operation sorting in 1D array
-    Conversion of 1D to 2D
+
+    Perform the operation sorting on 1D array
+
+    Convsersion of 1D to 2D:
     {
         set index=0
-        for i=0 to rowsize
+        for i=0 to rown=size
             for j=0 to coloumnsize
                 a1[i][j]=a2[index++]
             end for
         end for
     }
+   
 }
