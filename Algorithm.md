@@ -177,3 +177,20 @@ Sorting:
     }
    
 }
+
+Merging:
+consider two 2D arrays a&b. We have to merge these array into a 2D array called c
+{
+    Begin mergeArray(a,b,c)
+    for i=0 to rowsize of a
+        for j=0 to coloumnsize of a
+            c[i][j]=a[i][j]
+        end for
+    end for
+    for k=0, i=rowsize of sum of rowsize to a,b
+        for j=0 to coloumnsize of b
+            c[i][j]=b[k][j]
+        end for
+    end for
+    end mergeArray
+}
