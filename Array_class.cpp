@@ -3,16 +3,29 @@ using namespace std;
 class tdarray                                                       /*Two dimention array class and functions*/
 {
     public:
-    int b[30][30],i,n,j,m,e,f;
+    int a[30],b[30][30],i,n,j,m,e,f,in;
     tdarray()
     {
         f=0;
     }
     void storing();
     void traversing();
-    void display();
+    void displaytd();
+    void conversion1D();
+    friend void arrayoperation::display();
 };
-void tdarray::display()                                             /*2D Array dsiplaying*/
+void tdarray::conversion1D()                                        /*2D to 1D conversion*/
+{
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            in=i*m+j;
+            a[in++]=b[i][j];
+        }
+    }
+}
+void tdarray::displaytd()                                           /*2D Array dsiplaying*/
 {
     for(i=0;i<m;i++)
     {
@@ -57,14 +70,14 @@ void tdarray::storing()                                             /*2D Array S
             cin>>b[i][j];        
         }
     }
-    cout<<"Your array succesfully stored";
-    display();
+    cout<<"Your array succesfully stored"<<endl;
+    displaytd();
 }  
 class arrayoperation                                                /*One dimention array class and functions*/
 {
     public:                            
-    int a[30],i,n,loc,f,e,temp,j,first,last,mid,pos;    
-    arrayoperation()
+    int a[30],i,n,loc,f,e,temp,j,first,last,mid,pos;
+    arrayoperation() 
     {
         f=0;
         pos=-1;
@@ -76,6 +89,7 @@ class arrayoperation                                                /*One diment
     void traversing();
     void sorting();
     void binarysearch();
+    
 };
 void arrayoperation::display()                                      /*1D Array Displaying*/
 {
@@ -223,11 +237,13 @@ main()                                                              /*main funct
         {
             cout<<"Store a 2D array"<<endl;
             a1.storing();
-            cout<<"Enter the operation you want to perform\ninsertion - 1"<<endl;
+            cout<<"Enter the operation you want to perform\ninsertion - 1\nConversion -2"<<endl;
             cin>>o;
             switch(o)
             {
                 case 1: a1.traversing();
+                break;
+                case 2: a1.conversion1D();
                 break;
                 default: cout<<"Invalid operation";
             }
